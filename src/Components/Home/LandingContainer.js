@@ -1,4 +1,5 @@
 import React from 'react';
+import { signInWithGoogle, signInWithGithub } from '../../firebase';
 
 
 export default function LandingContainer() {
@@ -13,17 +14,17 @@ export default function LandingContainer() {
         <div className="left-col-btns">
 
           <div className="sign-in-buttons">
-            {/* <button className="email-button" type="submit">
+            { /*<button className="email-button" type="submit" onClick = {}>
               <img alt="icon-mat-email" src={require('../../png/Iconmaterial-email.png')} />
               <p>Sign in with email</p>
-            </button> */}
+  </button>*/}
 
-            <button className="google-button" type="submit">
+            <button className="google-button" type="submit" onClick ={ event => { signInWithGoogle(); }}>
               <img alt="Icon-simple-google" src={require('../../png/Icon-simple-google.png')} />
               <p>Sign in with Google</p>
             </button>
 
-            <button className="github-button" type="submit">
+            <button className="github-button" type="submit"onClick={ event => { signInWithGithub(); }}>
               <img alt="Icon-awesome-github.png" src={require('../../png/Iconawesome-github.png')} />
               <p>Sign in with Github</p>
             </button>
@@ -36,7 +37,7 @@ export default function LandingContainer() {
 
 
               <input
-                type="email"
+                type="email" name="email"
                 class="email-input sign-in-input"
                 placeholder="Email"
               />
@@ -54,10 +55,13 @@ export default function LandingContainer() {
                 />
               </div>
 
-              <input type="password"
-                className="password-input sign-in-input" placeholder="Choose password" />
+              <input name="password" type="password"
+                className="password-input sign-in-input" placeholder="Choose password"
+              />
               <div className="email-buttons">
-                <button type="submit" class="email-submit">Submit</button>
+                <button type="submit" class="email-submit">
+                  Submit
+              </button>
                 <button type="submit" class="email-next">Next</button>
                 <button class="email-cancel">Cancel</button>
               </div>
